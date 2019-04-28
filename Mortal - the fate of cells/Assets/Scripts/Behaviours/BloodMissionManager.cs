@@ -35,13 +35,14 @@ namespace Mortal
             float currentDifficulty = (float)stats.missionsWon / missionsHardnessInterpolationCount;
             currentDifficulty = Mathf.Clamp(currentDifficulty, 0, 1);
 
-            gen.positionChangeMod = (uint)(80 - Mathf.RoundToInt(70 * currentDifficulty));
-            gen.probability = Mathf.RoundToInt(10 + 90 * currentDifficulty);
-
+            gen.positionChangeMod = (uint)(50 - Mathf.RoundToInt(40 * currentDifficulty));
+            gen.probability = Mathf.RoundToInt(10 + 80 * currentDifficulty);
+            gen.sectionOffset += 0.5f * currentDifficulty;
             minPowerupsToWin = Mathf.RoundToInt(currentDifficulty * missionExtrems.maxPowerUps + minPowerupsToWin);
             int powerupsExtrapolation = Mathf.RoundToInt((1 - currentDifficulty)* missionExtrems.maxPowerupsExtrapolation * minPowerupsToWin + minPowerupsToWin);
             gen.totalCheckpointsToPass = (uint)powerupsExtrapolation;
             timeToCompleteMission = (90.0f - 30.0f * currentDifficulty);
+            oxigenDelivered.text = string.Format("Oxigen Delivered: {0}/{1}", totalPowerupsCollected, minPowerupsToWin);
         }
 
         private void HandlePowerUpTrigger(BloodMissionPowerUp powerup)

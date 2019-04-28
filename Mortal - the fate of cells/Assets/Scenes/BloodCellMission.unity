@@ -75887,7 +75887,7 @@ MonoBehaviour:
   oxigenDelivered: {fileID: 349846899}
   missionExtrems:
     maxPowerUps: 20
-    maxPowerupsExtrapolation: 2
+    maxPowerupsExtrapolation: 1
     maxOffsetDisplacement: 0.5
 --- !u!4 &1278073777
 Transform:
