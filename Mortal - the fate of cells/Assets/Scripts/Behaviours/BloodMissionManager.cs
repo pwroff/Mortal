@@ -16,6 +16,7 @@ namespace Mortal
         public TextMeshProUGUI oxigenDelivered;
         int totalPowerupsCollected = 0;
         int minPowerupsToWin = 5;
+        public AudioSource powerUpSource;
 
         public BloodMissionsExtrems missionExtrems;
 
@@ -48,6 +49,7 @@ namespace Mortal
         private void HandlePowerUpTrigger(BloodMissionPowerUp powerup)
         {
             totalPowerupsCollected++;
+            powerUpSource?.Play();
             oxigenDelivered.text = string.Format("Oxigen Delivered: {0}/{1}", totalPowerupsCollected, minPowerupsToWin);
             if (powerup.IsFinal)
             {

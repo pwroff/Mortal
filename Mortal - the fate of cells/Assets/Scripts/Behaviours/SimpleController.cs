@@ -39,26 +39,29 @@ namespace Mortal
         public VelocityLimits frontalMovementLimits;
         public VelocityLimits sideMovementLimits;
         public float onHitModifier = 0.95f;
-
+        AudioSource asc;
+        public AudioSource skretch;
+        public AudioClip collidingAC;
+        public AudioClip flyingAC;
         protected bool IsColliding;
 
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            asc = GetComponent<AudioSource>();
         }
 
         int totalEntered = 0;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision other)
         {
-            if (!other.isTrigger)
-                totalEntered++;
+            asc?.Play();
+            totalEntered++;
         }
 
-        private void OnTriggerExit(Collider other)
+        private void OnCollisionExit(Collision other)
         {
-            if (!other.isTrigger)
-                totalEntered--;
+            totalEntered--;
         }
 
         protected Vector3 GetVelocityForFrame(float deltaTime)
@@ -100,10 +103,24 @@ namespace Mortal
         void FixedUpdate()
         {
             var vel = GetVelocityForFrame(Time.fixedDeltaTime);
+            bool isClipTheSame = false;
             if (IsColliding)
             {
                 vel.z *= onHitModifier;
                 vel.x *= onHitModifier;
+                isClipTheSame = skretch.clip == collidingAC;
+                if (!isClipTheSame)
+                    skretch.clip = collidingAC;
+            } else
+            {
+                isClipTheSame = skretch.clip == flyingAC;
+                if (!isClipTheSame)
+                    skretch.clip = flyingAC;
+            }
+            if (!skretch.isPlaying)
+            {
+                skretch.loop = true;
+                skretch.Play();
             }
             rb.velocity = vel;
         }

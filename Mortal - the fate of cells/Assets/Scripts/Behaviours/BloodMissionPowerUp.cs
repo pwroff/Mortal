@@ -9,7 +9,7 @@ namespace Mortal
     {
         public delegate void GotPowerUp(BloodMissionPowerUp powerup);
         public static event GotPowerUp OnTrigger;
-
+        
         public bool IsFinal = false;
 
         private void OnTriggerEnter(Collider other)

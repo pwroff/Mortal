@@ -20,6 +20,8 @@ namespace Mortal
         public Button exitGameButton;
         public Button restartGameButton;
 
+        public AudioSource sceneChangePlay;
+
         const int defaultInitialLifes = 3;
         const int defaultRewardQuantity = 2;
         const int priceForMission = 1;
@@ -85,6 +87,7 @@ namespace Mortal
 
         void SwitchSession(ref string sceneName)
         {
+            sceneChangePlay?.Play();
             SceneManager.LoadScene(sceneName);
         }
 
