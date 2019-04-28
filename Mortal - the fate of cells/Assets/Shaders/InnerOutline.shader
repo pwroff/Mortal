@@ -7,6 +7,8 @@ Shader "Unlit/InnerOutline"
         _MainTex ("OutlineMask", 2D) = "white" {}
         _Color ("Color", Color) = (0.0, 0.0, 0.0, 1.0)
         _ColorOutline ("Color Outline", Color) = (0.0, 0.0, 0.0, 1.0)
+		_AnimateUV("Animate uv", Range(0, 1)) = 0
+		_Animation("Animation", Vector) = (1.0, 1.0, 1.0, 1.0)
     }
     SubShader
     {
@@ -36,7 +38,8 @@ Shader "Unlit/InnerOutline"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-			fixed4 _Color, _ColorOutline;
+			fixed4 _Color, _ColorOutline, _Animation;
+			float _AnimateUV;
 
 			UNITY_INSTANCING_BUFFER_START(Props)
 				// Define per instance attributes here
@@ -49,6 +52,11 @@ Shader "Unlit/InnerOutline"
 				UNITY_SETUP_INSTANCE_ID(v);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				if (_AnimateUV)
+				{
+					o.uv.x += (_SinTime.x * _Animation.x) * _Animation.y;
+					o.uv.y += (_CosTime.x * _Animation.z) * _Animation.w;
+				}
                 return o;
             }
 

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PowerUpMat
-  m_Shader: {fileID: 4800000, guid: a70f60447274d754b9e427bee774d845, type: 3}
+  m_Shader: {fileID: 4800000, guid: e47d2abdb20a58c42b3dfe8b72402337, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 14be0da4ec1f5cc40b9d36be38d12513, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -77,5 +77,6 @@ Material:
     m_Colors:
     - _Animation: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.28230685, g: 0.9811321, b: 0.37643448, a: 1}
+    - _ColorOutline: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Shade: {r: 0, g: 0, b: 0, a: 0}

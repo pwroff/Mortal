@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Mortal
@@ -54,6 +56,7 @@ namespace Mortal
         {
             for (int i = transform.childCount; i > 0; i--)
             {
+#if UNITY_EDITOR
                 if (EditorApplication.isPlaying)
                 {
                     Destroy(transform.GetChild(i - 1).gameObject);
@@ -62,11 +65,16 @@ namespace Mortal
                 {
                     DestroyImmediate(transform.GetChild(i - 1).gameObject);
                 }
+#else
+                Destroy(transform.GetChild(i - 1).gameObject);
+#endif
             }
         }
 
+#if UNITY_EDITOR
         [SerializeField, InspectorButton("CreateGrid")]
         protected string createGrid;
+#endif
 
         protected virtual void CreateGrid()
         {

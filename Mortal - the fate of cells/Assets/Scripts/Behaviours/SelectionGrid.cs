@@ -14,19 +14,9 @@ namespace Mortal
 
     public class SelectionGrid : MonoBehaviour
     {
+#if UNITY_EDITOR
         public Vector2Int gridSize = new Vector2Int(6, 6);
         public GameObject plate;
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         void ClearChildren()
         {
@@ -44,7 +34,8 @@ namespace Mortal
         }
 
         [SerializeField, InspectorButton("CreateGrid")]
-        string createGrid;
+        protected string createGrid;
+
 
         void CreateGrid()
         {
@@ -61,5 +52,6 @@ namespace Mortal
                 }
             }
         }
+#endif
     }
 }

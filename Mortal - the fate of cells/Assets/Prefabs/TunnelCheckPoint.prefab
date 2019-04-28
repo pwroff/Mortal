@@ -53,11 +53,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4615178746955541157}
     m_Modifications:
-    - target: {fileID: 8393175253459077425, guid: 47b0f3215702a6148aa49b181e7b5847,
-        type: 3}
-      propertyPath: m_Name
-      value: NeuronGeometry
-      objectReference: {fileID: 0}
     - target: {fileID: 8393175253459077424, guid: 47b0f3215702a6148aa49b181e7b5847,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -117,6 +112,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393175253459077425, guid: 47b0f3215702a6148aa49b181e7b5847,
+        type: 3}
+      propertyPath: m_Name
+      value: NeuronGeometry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2020790904332062165, guid: 47b0f3215702a6148aa49b181e7b5847,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392798322242483344, guid: 47b0f3215702a6148aa49b181e7b5847,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47b0f3215702a6148aa49b181e7b5847, type: 3}

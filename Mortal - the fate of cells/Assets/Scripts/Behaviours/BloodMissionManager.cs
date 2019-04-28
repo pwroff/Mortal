@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Mortal
 {
@@ -43,14 +42,14 @@ namespace Mortal
             int powerupsExtrapolation = Mathf.RoundToInt((1 - currentDifficulty)* missionExtrems.maxPowerupsExtrapolation * minPowerupsToWin + minPowerupsToWin);
             gen.totalCheckpointsToPass = (uint)powerupsExtrapolation;
             timeToCompleteMission = (90.0f - 30.0f * currentDifficulty);
-            oxigenDelivered.text = string.Format("Oxigen Delivered: {0}/{1}", totalPowerupsCollected, minPowerupsToWin);
+            oxigenDelivered.text = string.Format("Oxygen Delivered: {0}/{1}", totalPowerupsCollected, minPowerupsToWin);
         }
 
         private void HandlePowerUpTrigger(BloodMissionPowerUp powerup)
         {
             totalPowerupsCollected++;
             powerUpSource?.Play();
-            oxigenDelivered.text = string.Format("Oxigen Delivered: {0}/{1}", totalPowerupsCollected, minPowerupsToWin);
+            oxigenDelivered.text = string.Format("Oxygen Delivered: {0}/{1}", totalPowerupsCollected, minPowerupsToWin);
             if (powerup.IsFinal)
             {
                 ProcessEndMission();
